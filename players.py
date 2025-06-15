@@ -25,6 +25,9 @@ class Person:
         if damage >= 0:
             self.hp_total -= damage
 
+    def get_hp(self, player1):
+        return self.hp_total
+
 
 class Paladin(Person):
     def __init__(self, name):
