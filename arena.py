@@ -1,8 +1,12 @@
+import time
 from random import choices
 
 
 class Arena:
     """Класс для создания объекта арены сражений"""
+
+    ORANGE = '\033[33m'
+    RED = '\033[31m'
 
     def __init__(self, capacity=10):
         self.capacity = capacity
@@ -18,7 +22,8 @@ class Arena:
     def make_move(self):
         self.player2.get_defence(self.player1)
         if self.player2.hp_total > 0:
-            print(f'{self.player1.name} наносит удар {self.player2.name}, но {self.player2.name} устоял!')
+            print(self.ORANGE + f'{self.player1.name} наносит удар {self.player2.name}, но {self.player2.name} устоял!')
         else:
-            print(f'{self.player1.name} наносит сокрушительный удар {self.player2.name} и выводит его из боя!')
+            print(self.RED + f'{self.player1.name} наносит сокрушительный удар {self.player2.name} и выводит его из боя!')
             self.players.remove(self.player2)
+        time.sleep(0.3)
